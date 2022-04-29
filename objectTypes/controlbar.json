@@ -1,0 +1,44 @@
+{
+	"name": "controlBar",
+	"plugin-id": "Sprite",
+	"sid": 703310096031360,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "restBar",
+			"type": "boolean",
+			"desc": "",
+			"sid": 639100951637077
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 188,
+						"height": 32,
+						"originX": 0,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 5187559,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 574475635610720,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -1,0 +1,126 @@
+{
+	"name": "enemy",
+	"plugin-id": "Sprite",
+	"sid": 949014833190956,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Heath",
+			"type": "number",
+			"desc": "",
+			"sid": 894867601399030
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "LOS",
+			"name": "LineOfSight",
+			"sid": 125207738462747
+		},
+		{
+			"behaviorId": "Flash",
+			"name": "Flash",
+			"sid": 245804625790763
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 230,
+						"height": 230,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 5411374,
+						"collisionPoly": {
+							"points": [
+								0.9873362265429553,
+								0.9438577998169873,
+								0.07353340501699718,
+								0.9612491705073745,
+								0.051794274582214576,
+								0.038750829492625566,
+								0.9829884667985599,
+								0.03875066363622272
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 512693521686621,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 252,
+						"height": 252,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 1649992,
+						"collisionPoly": {
+							"points": [
+								0.996031746031746,
+								0.996031746031746,
+								0.003968253968253968,
+								0.996031746031746,
+								0.003968253968253968,
+								0.003968253968253968,
+								0.996031746031746,
+								0.003968253968253968
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 2
+					},
+					{
+						"width": 252,
+						"height": 252,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 5173946,
+						"collisionPoly": {
+							"points": [
+								0.003968253968253968,
+								0.003968253968253968,
+								0.996031746031746,
+								0.003968253968253968,
+								0.996031746031746,
+								0.996031746031746,
+								0.003968253968253968,
+								0.996031746031746
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 580928447434750,
+				"name": "hurting",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 2
+			}
+		],
+		"subfolders": []
+	}
+}

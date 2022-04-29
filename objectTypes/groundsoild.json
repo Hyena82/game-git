@@ -1,0 +1,61 @@
+{
+	"name": "groundSoild",
+	"plugin-id": "Sprite",
+	"sid": 833291823023494,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 369783284871714
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 473,
+						"height": 56,
+						"originX": 0.5264270613107822,
+						"originY": -1.25,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 973397,
+						"collisionPoly": {
+							"points": [
+								0.13953485146133388,
+								0.37499972752162386,
+								0.31976742573066697,
+								0.08035659790039062,
+								0.5,
+								0,
+								0.6955602214401919,
+								0.08928571428571427,
+								0.8520084566596186,
+								0.33035687037876665,
+								1,
+								0.9821428571428571,
+								0,
+								0.9821428571428571
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 313973082790603,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

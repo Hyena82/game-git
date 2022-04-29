@@ -1,0 +1,55 @@
+{
+	"name": "gun",
+	"plugin-id": "Sprite",
+	"sid": 552084428235221,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "LOS",
+			"name": "LineOfSight",
+			"sid": 654434711406300
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 226,
+						"height": 139,
+						"originX": 0.5575221238938053,
+						"originY": 0.6906474820143884,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 5937744,
+						"collisionPoly": {
+							"points": [
+								0.004424778761061954,
+								0,
+								1,
+								0,
+								1,
+								1,
+								0.004424778761061954,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 638315845141634,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

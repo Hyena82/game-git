@@ -1,0 +1,689 @@
+{
+	"name": "Event sheet 1",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "timer",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 696799722261869
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "bullet",
+					"sid": 982083472065359,
+					"parameters": {
+						"object": "TiledBackground4"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "bullet",
+					"sid": 556289944081068
+				},
+				{
+					"id": "subtract-from-instvar",
+					"objectClass": "TiledBackground4",
+					"sid": 451060170205280,
+					"parameters": {
+						"instance-variable": "Health",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 448824195858160
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "TiledBackground4",
+					"sid": 654862202717949,
+					"parameters": {
+						"instance-variable": "Health",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "TiledBackground4",
+					"sid": 466366981952780
+				}
+			],
+			"sid": 664535716641740
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "has-los-to-object",
+					"objectClass": "enemy",
+					"sid": 918981525792132,
+					"behaviorType": "LineOfSight",
+					"parameters": {
+						"object": "Sprite4",
+						"image-point": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-angle-toward-position",
+					"objectClass": "gun",
+					"sid": 964621506029587,
+					"parameters": {
+						"x": "Sprite4.X",
+						"y": "Sprite4.Y"
+					}
+				}
+			],
+			"sid": 973886379077423
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 503842690820323,
+					"parameters": {
+						"key": 65
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "simulate-control",
+					"objectClass": "Sprite4",
+					"sid": 131851336597326,
+					"behaviorType": "Platform",
+					"parameters": {
+						"control": "left"
+					}
+				}
+			],
+			"sid": 747822206896166
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 583717813097709,
+					"parameters": {
+						"key": 68
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "simulate-control",
+					"objectClass": "Sprite4",
+					"sid": 547528297672252,
+					"behaviorType": "Platform",
+					"parameters": {
+						"control": "right"
+					}
+				}
+			],
+			"sid": 704639484234886
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 640561300358840,
+					"parameters": {
+						"key": 87
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "simulate-control",
+					"objectClass": "Sprite4",
+					"sid": 191593138372843,
+					"behaviorType": "Platform",
+					"parameters": {
+						"control": "jump"
+					}
+				}
+			],
+			"sid": 837100351269084
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 603089616909674,
+					"parameters": {
+						"key": 32
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "spawn-another-object",
+					"objectClass": "Sprite4",
+					"sid": 839505303939804,
+					"parameters": {
+						"object": "bullet",
+						"layer": "0",
+						"image-point": "0",
+						"create-hierarchy": false
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Sprite4",
+					"sid": 924447715905047,
+					"parameters": {
+						"animation": "\"shooting\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 843107682117667
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "bullet",
+					"sid": 210833043823813,
+					"parameters": {
+						"object": "enemy"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "bullet",
+					"sid": 267657461953726
+				},
+				{
+					"id": "flash",
+					"objectClass": "enemy",
+					"sid": 740365296358468,
+					"behaviorType": "Flash",
+					"parameters": {
+						"on-time": "0.05",
+						"off-time": "0.05",
+						"duration": "0.5"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "enemy",
+					"sid": 112556117525156,
+					"parameters": {
+						"animation": "\"hurting\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "subtract-from-instvar",
+					"objectClass": "enemy",
+					"sid": 686243463361403,
+					"parameters": {
+						"instance-variable": "Heath",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-width",
+					"objectClass": "currentHeathBG2",
+					"sid": 371256018725067,
+					"parameters": {
+						"width": "(enemy.Heath/50)*208"
+					}
+				},
+				{
+					"id": "shake",
+					"objectClass": "Sprite4",
+					"sid": 842024740130987,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"magnitude": "20",
+						"duration": "0.4",
+						"mode": "reducing-magnitude"
+					}
+				}
+			],
+			"sid": 414402390513282
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "has-los-to-object",
+					"objectClass": "enemy",
+					"sid": 763212281528220,
+					"behaviorType": "LineOfSight",
+					"parameters": {
+						"object": "Sprite4",
+						"image-point": "0"
+					}
+				},
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 341031680011557,
+					"parameters": {
+						"interval-seconds": "1.0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "spawn-another-object",
+					"objectClass": "gun",
+					"sid": 974168145411036,
+					"parameters": {
+						"object": "Sprite3",
+						"layer": "0",
+						"image-point": "1",
+						"create-hierarchy": false
+					}
+				}
+			],
+			"sid": 218817068442748
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "enemy",
+					"sid": 194379179499806,
+					"parameters": {
+						"instance-variable": "Heath",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "enemy",
+					"sid": 415841829022484
+				},
+				{
+					"id": "destroy",
+					"objectClass": "gun",
+					"sid": 964432477513825
+				},
+				{
+					"id": "destroy",
+					"objectClass": "currentHeathBG",
+					"sid": 704525014642760
+				}
+			],
+			"sid": 184578821370269
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Sprite4",
+					"sid": 514263531308428,
+					"parameters": {
+						"object": "Sprite3"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Sprite3",
+					"sid": 971925746086511
+				},
+				{
+					"id": "flash",
+					"objectClass": "Sprite4",
+					"sid": 688149081117919,
+					"behaviorType": "Flash",
+					"parameters": {
+						"on-time": "0.03",
+						"off-time": "0.03",
+						"duration": "0.3"
+					}
+				}
+			],
+			"sid": 249443372374372
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 737522114832966
+				}
+			],
+			"actions": [
+				{
+					"id": "set-angle-toward-position",
+					"objectClass": "Sprite4",
+					"sid": 649744443355862,
+					"parameters": {
+						"x": "Mouse.X",
+						"y": "Mouse.Y"
+					}
+				}
+			],
+			"sid": 339552681853234,
+			"disabled": true
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "check",
+			"description": "",
+			"isActiveOnStart": false,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "power up",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 276091226234320
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "controlBar",
+									"sid": 274135906962458,
+									"parameters": {
+										"instance-variable": "restBar"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 230593976637473,
+									"parameters": {
+										"variable": "timer",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Text",
+									"sid": 896847897417762,
+									"parameters": {
+										"text": "timer"
+									}
+								},
+								{
+									"id": "set-width",
+									"objectClass": "controlBar",
+									"sid": 800282810219842,
+									"parameters": {
+										"width": "timer"
+									}
+								}
+							],
+							"sid": 139482217821887
+						}
+					],
+					"sid": 235470878183513
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "power down",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 541898261743519
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "controlBar",
+									"sid": 607822546425439,
+									"parameters": {
+										"instance-variable": "restBar"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 845635843969433,
+									"parameters": {
+										"variable": "timer",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Text",
+									"sid": 442786804140608,
+									"parameters": {
+										"text": "timer"
+									}
+								},
+								{
+									"id": "set-width",
+									"objectClass": "controlBar",
+									"sid": 528568434337962,
+									"parameters": {
+										"width": "timer"
+									}
+								}
+							],
+							"sid": 584959728657165
+						}
+					],
+					"sid": 201031350251992
+				}
+			],
+			"sid": 957279060005586
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 369879760475887,
+					"parameters": {
+						"variable": "timer",
+						"comparison": 0,
+						"value": "100"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "toggle-boolean-instvar",
+					"objectClass": "controlBar",
+					"sid": 405095048397067,
+					"parameters": {
+						"instance-variable": "restBar"
+					}
+				}
+			],
+			"sid": 932585938478022
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 305781964849223,
+					"parameters": {
+						"variable": "timer",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "controlBar",
+					"sid": 340049896250725,
+					"parameters": {
+						"instance-variable": "restBar",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 890051091029119
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "mouse-button-is-down",
+					"objectClass": "Mouse",
+					"sid": 628286144805511,
+					"parameters": {
+						"mouse-button": "left"
+					}
+				},
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 170045298132269
+				}
+			],
+			"actions": [
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 961775746066127,
+					"parameters": {
+						"group-name": "\"check\"",
+						"state": "activated"
+					}
+				}
+			],
+			"sid": 964452171279444
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-button-released",
+					"objectClass": "Mouse",
+					"sid": 796259589408893,
+					"parameters": {
+						"mouse-button": "left"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 834326320563544,
+					"parameters": {
+						"group-name": "\"check\"",
+						"state": "deactivated"
+					}
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "Sprite4",
+					"sid": 531979705378198,
+					"parameters": {
+						"object": "bullet",
+						"layer": "0",
+						"image-point": "0",
+						"create-hierarchy": false
+					}
+				},
+				{
+					"id": "set-gravity",
+					"objectClass": "bullet",
+					"sid": 568596874269337,
+					"behaviorType": "Bullet",
+					"parameters": {
+						"gravity": "700 - timer*7"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 839855485352101,
+					"disabled": true,
+					"parameters": {
+						"group-name": "\"power down\"",
+						"state": "deactivated"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 200715879282134,
+					"disabled": true,
+					"parameters": {
+						"group-name": "\"power up\"",
+						"state": "deactivated"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "showvalue",
+					"sid": 705125379558081,
+					"parameters": {
+						"text": "controlBar.restBar"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 840492400804449,
+					"parameters": {
+						"variable": "timer",
+						"value": "0"
+					}
+				}
+			],
+			"sid": 438728801885591
+		}
+	],
+	"sid": 746884795176260
+}

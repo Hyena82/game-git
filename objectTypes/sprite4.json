@@ -1,0 +1,105 @@
+{
+	"name": "Sprite4",
+	"plugin-id": "Sprite",
+	"sid": 975177324291539,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "scrollto",
+			"name": "ScrollTo",
+			"sid": 894091640906699
+		},
+		{
+			"behaviorId": "Platform",
+			"name": "Platform",
+			"sid": 839343015070624
+		},
+		{
+			"behaviorId": "Flash",
+			"name": "Flash",
+			"sid": 455596684389676
+		},
+		{
+			"behaviorId": "Physics",
+			"name": "Physics",
+			"sid": 692833504928425
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 250,
+						"height": 250,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 543613,
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 250,
+						"height": 250,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 7822098,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 701422913352154,
+				"name": "Animation 1",
+				"isLooping": true,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 2
+			},
+			{
+				"frames": [
+					{
+						"width": 250,
+						"height": 250,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 1179186,
+						"useCollisionPoly": true,
+						"duration": 3
+					},
+					{
+						"width": 250,
+						"height": 250,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9086862,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 711886297452517,
+				"name": "shooting",
+				"isLooping": false,
+				"isPingPong": true,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}
