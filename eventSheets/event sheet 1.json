@@ -70,6 +70,21 @@
 						"height-type": "no",
 						"z": false
 					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "controlBar",
+					"sid": 654634725705253,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Sprite4",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
 				}
 			],
 			"sid": 566648866184407
@@ -122,7 +137,6 @@
 					"id": "set-group-active",
 					"objectClass": "System",
 					"sid": 958194857317307,
-					"disabled": true,
 					"parameters": {
 						"group-name": "\"moving\"",
 						"state": "deactivated"
@@ -376,7 +390,6 @@
 					"id": "shake",
 					"objectClass": "enemy",
 					"sid": 675222902147858,
-					"disabled": true,
 					"behaviorType": "ScrollTo",
 					"parameters": {
 						"magnitude": "20",
@@ -778,6 +791,7 @@
 					"id": "set-enabled",
 					"objectClass": "Sprite4",
 					"sid": 790761842573368,
+					"disabled": true,
 					"behaviorType": "ScrollTo",
 					"parameters": {
 						"state": "disabled"
