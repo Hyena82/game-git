@@ -117,6 +117,14 @@
 			"author": "Scirra",
 			"version": "r285.3",
 			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Pin",
+			"name": "Pin",
+			"author": "Scirra",
+			"version": "r285.3",
+			"bundled": false
 		}
 	],
 	"uniqueId": "fu9amf6nqzp",
@@ -147,7 +155,8 @@
 			"clickbtn",
 			"Sprite5",
 			"showvalue",
-			"Sprite6"
+			"Sprite6",
+			"Sprite7"
 		],
 		"subfolders": []
 	},

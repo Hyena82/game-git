@@ -3,6 +3,16 @@
 	"events": [
 		{
 			"eventType": "variable",
+			"name": "angleBullet",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 323932546903042
+		},
+		{
+			"eventType": "variable",
 			"name": "timer",
 			"type": "number",
 			"initialValue": "0",
@@ -40,6 +50,42 @@
 				}
 			],
 			"sid": 448824195858160
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 645684895083112
+				}
+			],
+			"actions": [
+				{
+					"id": "set-angle",
+					"objectClass": "bullet",
+					"sid": 996994872363481,
+					"parameters": {
+						"angle": "180"
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Sprite7",
+					"sid": 573818955501053,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Sprite4",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				}
+			],
+			"sid": 566648866184407
 		},
 		{
 			"eventType": "block",
@@ -155,16 +201,57 @@
 			],
 			"actions": [
 				{
-					"id": "simulate-control",
-					"objectClass": "Sprite4",
-					"sid": 191593138372843,
-					"behaviorType": "Platform",
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 255479515333440,
 					"parameters": {
-						"control": "jump"
+						"variable": "angleBullet",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-angle",
+					"objectClass": "Sprite7",
+					"sid": 211989512578367,
+					"parameters": {
+						"angle": "angleBullet"
 					}
 				}
 			],
 			"sid": 837100351269084
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 372192720843690,
+					"parameters": {
+						"key": 83
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 293904612769930,
+					"parameters": {
+						"variable": "angleBullet",
+						"value": "-1"
+					}
+				},
+				{
+					"id": "set-angle",
+					"objectClass": "Sprite7",
+					"sid": 135468426550227,
+					"parameters": {
+						"angle": "angleBullet"
+					}
+				}
+			],
+			"sid": 174809393374378
 		},
 		{
 			"eventType": "block",
@@ -221,6 +308,17 @@
 					"sid": 267657461953726
 				},
 				{
+					"id": "shake",
+					"objectClass": "enemy",
+					"sid": 675222902147858,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"magnitude": "20",
+						"duration": "0.4",
+						"mode": "reducing-magnitude"
+					}
+				},
+				{
 					"id": "flash",
 					"objectClass": "enemy",
 					"sid": 740365296358468,
@@ -255,17 +353,6 @@
 					"sid": 371256018725067,
 					"parameters": {
 						"width": "(enemy.Heath/50)*208"
-					}
-				},
-				{
-					"id": "shake",
-					"objectClass": "Sprite4",
-					"sid": 842024740130987,
-					"behaviorType": "ScrollTo",
-					"parameters": {
-						"magnitude": "20",
-						"duration": "0.4",
-						"mode": "reducing-magnitude"
 					}
 				}
 			],
@@ -626,8 +713,8 @@
 				},
 				{
 					"id": "spawn-another-object",
-					"objectClass": "Sprite4",
-					"sid": 531979705378198,
+					"objectClass": "Sprite7",
+					"sid": 807428139003330,
 					"parameters": {
 						"object": "bullet",
 						"layer": "0",
@@ -667,9 +754,9 @@
 				{
 					"id": "set-text",
 					"objectClass": "showvalue",
-					"sid": 705125379558081,
+					"sid": 592367524066140,
 					"parameters": {
-						"text": "controlBar.restBar"
+						"text": "bullet.Angle"
 					}
 				},
 				{
