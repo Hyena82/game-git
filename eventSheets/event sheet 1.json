@@ -3,6 +3,16 @@
 	"events": [
 		{
 			"eventType": "variable",
+			"name": "move",
+			"type": "number",
+			"initialValue": "200",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 571676945467863
+		},
+		{
+			"eventType": "variable",
 			"name": "angleBullet",
 			"type": "number",
 			"initialValue": "0",
@@ -25,36 +35,6 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-collision-with-another-object",
-					"objectClass": "bullet",
-					"sid": 982083472065359,
-					"parameters": {
-						"object": "TiledBackground4"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "destroy",
-					"objectClass": "bullet",
-					"sid": 556289944081068
-				},
-				{
-					"id": "subtract-from-instvar",
-					"objectClass": "TiledBackground4",
-					"sid": 451060170205280,
-					"parameters": {
-						"instance-variable": "Health",
-						"value": "1"
-					}
-				}
-			],
-			"sid": 448824195858160
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
 					"id": "on-start-of-layout",
 					"objectClass": "System",
 					"sid": 645684895083112
@@ -62,17 +42,24 @@
 			],
 			"actions": [
 				{
-					"id": "set-angle",
-					"objectClass": "bullet",
-					"sid": 996994872363481,
+					"id": "pin-to-object-properties",
+					"objectClass": "Sprite7",
+					"sid": 573818955501053,
+					"behaviorType": "Pin",
 					"parameters": {
-						"angle": "180"
+						"pin-to": "Sprite4",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
 					}
 				},
 				{
 					"id": "pin-to-object-properties",
-					"objectClass": "Sprite7",
-					"sid": 573818955501053,
+					"objectClass": "movingValue",
+					"sid": 963248619374907,
 					"behaviorType": "Pin",
 					"parameters": {
 						"pin-to": "Sprite4",
@@ -91,24 +78,58 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "compare-instance-variable",
-					"objectClass": "TiledBackground4",
-					"sid": 654862202717949,
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 133416736099248
+				}
+			],
+			"actions": [
+				{
+					"id": "set-width",
+					"objectClass": "movingValue",
+					"sid": 657047248640254,
 					"parameters": {
-						"instance-variable": "Health",
-						"comparison": 0,
+						"width": "(( move * 100)/200)*(60/100)"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "showvalue",
+					"sid": 320222988363224,
+					"parameters": {
+						"text": "(( move * 100)/200)*(60/100)"
+					}
+				}
+			],
+			"sid": 540086126280581
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 970547119349358,
+					"parameters": {
+						"variable": "move",
+						"comparison": 3,
 						"value": "0"
 					}
 				}
 			],
 			"actions": [
 				{
-					"id": "destroy",
-					"objectClass": "TiledBackground4",
-					"sid": 466366981952780
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 958194857317307,
+					"disabled": true,
+					"parameters": {
+						"group-name": "\"moving\"",
+						"state": "deactivated"
+					}
 				}
 			],
-			"sid": 664535716641740
+			"sid": 931483526440504
 		},
 		{
 			"eventType": "block",
@@ -138,54 +159,98 @@
 			"sid": 973886379077423
 		},
 		{
-			"eventType": "block",
-			"conditions": [
+			"eventType": "group",
+			"disabled": false,
+			"title": "moving",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
 				{
-					"id": "key-is-down",
-					"objectClass": "Keyboard",
-					"sid": 503842690820323,
-					"parameters": {
-						"key": 65
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 499980644431986,
+							"parameters": {
+								"key": 65
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Sprite4",
+							"sid": 773246870115720,
+							"behaviorType": "Platform",
+							"parameters": {
+								"control": "left"
+							}
+						},
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 998929442620506,
+							"parameters": {
+								"variable": "move",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-mirrored",
+							"objectClass": "Sprite4",
+							"sid": 535221034909842,
+							"parameters": {
+								"state": "mirrored"
+							}
+						}
+					],
+					"sid": 930274954696537
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 148538969141589,
+							"parameters": {
+								"key": 68
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Sprite4",
+							"sid": 989667785535451,
+							"behaviorType": "Platform",
+							"parameters": {
+								"control": "right"
+							}
+						},
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 195426388554775,
+							"parameters": {
+								"variable": "move",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-mirrored",
+							"objectClass": "Sprite4",
+							"sid": 165518142285941,
+							"parameters": {
+								"state": "not-mirrored"
+							}
+						}
+					],
+					"sid": 945196418070510
 				}
 			],
-			"actions": [
-				{
-					"id": "simulate-control",
-					"objectClass": "Sprite4",
-					"sid": 131851336597326,
-					"behaviorType": "Platform",
-					"parameters": {
-						"control": "left"
-					}
-				}
-			],
-			"sid": 747822206896166
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "key-is-down",
-					"objectClass": "Keyboard",
-					"sid": 583717813097709,
-					"parameters": {
-						"key": 68
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "simulate-control",
-					"objectClass": "Sprite4",
-					"sid": 547528297672252,
-					"behaviorType": "Platform",
-					"parameters": {
-						"control": "right"
-					}
-				}
-			],
-			"sid": 704639484234886
+			"sid": 526325929309364
 		},
 		{
 			"eventType": "block",
@@ -311,6 +376,7 @@
 					"id": "shake",
 					"objectClass": "enemy",
 					"sid": 675222902147858,
+					"disabled": true,
 					"behaviorType": "ScrollTo",
 					"parameters": {
 						"magnitude": "20",
@@ -459,29 +525,6 @@
 				}
 			],
 			"sid": 249443372374372
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "every-tick",
-					"objectClass": "System",
-					"sid": 737522114832966
-				}
-			],
-			"actions": [
-				{
-					"id": "set-angle-toward-position",
-					"objectClass": "Sprite4",
-					"sid": 649744443355862,
-					"parameters": {
-						"x": "Mouse.X",
-						"y": "Mouse.Y"
-					}
-				}
-			],
-			"sid": 339552681853234,
-			"disabled": true
 		},
 		{
 			"eventType": "group",
@@ -732,31 +775,12 @@
 					}
 				},
 				{
-					"id": "set-group-active",
-					"objectClass": "System",
-					"sid": 839855485352101,
-					"disabled": true,
+					"id": "set-enabled",
+					"objectClass": "Sprite4",
+					"sid": 790761842573368,
+					"behaviorType": "ScrollTo",
 					"parameters": {
-						"group-name": "\"power down\"",
-						"state": "deactivated"
-					}
-				},
-				{
-					"id": "set-group-active",
-					"objectClass": "System",
-					"sid": 200715879282134,
-					"disabled": true,
-					"parameters": {
-						"group-name": "\"power up\"",
-						"state": "deactivated"
-					}
-				},
-				{
-					"id": "set-text",
-					"objectClass": "showvalue",
-					"sid": 592367524066140,
-					"parameters": {
-						"text": "bullet.Angle"
+						"state": "disabled"
 					}
 				},
 				{
